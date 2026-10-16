@@ -27,6 +27,7 @@ import ganymedes01.etfuturum.client.renderer.block.BlockEndRodRenderer;
 import ganymedes01.etfuturum.client.renderer.block.BlockExtendedCrossedSquaresRenderer;
 import ganymedes01.etfuturum.client.renderer.block.BlockGlazedTerracottaRenderer;
 import ganymedes01.etfuturum.client.renderer.block.BlockGlowLichenRenderer;
+import ganymedes01.etfuturum.client.renderer.block.BlockGrindstoneRenderer;
 import ganymedes01.etfuturum.client.renderer.block.BlockLanternRenderer;
 import ganymedes01.etfuturum.client.renderer.block.BlockLavaCauldronRenderer;
 import ganymedes01.etfuturum.client.renderer.block.BlockLoomRenderer;
@@ -63,6 +64,7 @@ import ganymedes01.etfuturum.client.renderer.item.ItemSkullRenderer;
 import ganymedes01.etfuturum.client.renderer.tileentity.TileEntityBannerRenderer;
 import ganymedes01.etfuturum.client.renderer.tileentity.TileEntityFancySkullRenderer;
 import ganymedes01.etfuturum.client.renderer.tileentity.TileEntityGatewayRenderer;
+import ganymedes01.etfuturum.client.renderer.tileentity.TileEntityGrindstoneRenderer;
 import ganymedes01.etfuturum.client.renderer.tileentity.TileEntityNewBeaconRenderer;
 import ganymedes01.etfuturum.client.renderer.tileentity.TileEntityShulkerBoxRenderer;
 import ganymedes01.etfuturum.client.renderer.tileentity.TileEntityWoodSignRenderer;
@@ -95,6 +97,7 @@ import ganymedes01.etfuturum.spectator.SpectatorModeClient;
 
 import ganymedes01.etfuturum.tileentities.TileEntityBanner;
 import ganymedes01.etfuturum.tileentities.TileEntityGateway;
+import ganymedes01.etfuturum.tileentities.TileEntityGrindstone;
 import ganymedes01.etfuturum.tileentities.TileEntityNewBeacon;
 import ganymedes01.etfuturum.tileentities.TileEntityShulkerBox;
 import ganymedes01.etfuturum.tileentities.TileEntityWoodSign;
@@ -166,6 +169,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityNewBeacon.class, new TileEntityNewBeaconRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityShulkerBox.class, new TileEntityShulkerBoxRenderer(new ModelShulker()));
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGateway.class, new TileEntityGatewayRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrindstone.class, new TileEntityGrindstoneRenderer());
 
 		RenderingRegistry.registerBlockHandler(new BlockExtendedCrossedSquaresRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockNewFenceRenderer());
@@ -182,6 +186,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new BlockStonecutterRenderer(RenderIDs.STONECUTTER));
 		RenderingRegistry.registerBlockHandler(new BlockComposterRenderer(RenderIDs.COMPOSTER));
 		RenderingRegistry.registerBlockHandler(new BlockLoomRenderer(RenderIDs.LOOM));
+		RenderingRegistry.registerBlockHandler(new BlockGrindstoneRenderer(RenderIDs.GRINDSTONE));
 		RenderingRegistry.registerBlockHandler(new BlockAmethystClusterRenderer(RenderIDs.AMETHYST_CLUSTER));
 		RenderingRegistry.registerBlockHandler(new BlockPointedDripstoneRenderer(RenderIDs.POINTED_DRIPSTONE));
 		RenderingRegistry.registerBlockHandler(new BlockColoredWaterCauldronRenderer(RenderIDs.COLORED_CAULDRON));

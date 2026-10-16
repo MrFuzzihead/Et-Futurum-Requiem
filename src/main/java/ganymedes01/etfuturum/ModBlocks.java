@@ -66,6 +66,7 @@ import ganymedes01.etfuturum.blocks.BlockFrostedIce;
 import ganymedes01.etfuturum.blocks.BlockGildedBlackstone;
 import ganymedes01.etfuturum.blocks.BlockGlazedTerracotta;
 import ganymedes01.etfuturum.blocks.BlockGlowLichen;
+import ganymedes01.etfuturum.blocks.BlockGrindstone;
 import ganymedes01.etfuturum.blocks.BlockHoney;
 import ganymedes01.etfuturum.blocks.BlockInvertedDaylightDetector;
 import ganymedes01.etfuturum.blocks.BlockIronTrapdoor;
@@ -492,6 +493,7 @@ public enum ModBlocks {
 	FLETCHING_TABLE(ConfigBlocksItems.enableFletchingTable, new BlockFletchingTable(), ItemBlockDecorationWorkbench.class),
 	CARTOGRAPHY_TABLE(ConfigBlocksItems.enableCartographyTable, new BlockCartographyTable(), ItemBlockDecorationWorkbench.class),
 	LOOM(ConfigBlocksItems.enableLoom, new BlockLoom(), ItemBlockDecorationWorkbench.class),
+	GRINDSTONE(ConfigBlocksItems.enableGrindstone, new BlockGrindstone()),
 	DRIPSTONE_BLOCK(ConfigExperiments.enableDripstone, new BaseBlock(Material.rock).setNames("dripstone_block")
 			.setBlockSound(ModSounds.soundDripstoneBlock).setHardness(1.5F).setResistance(1F)),
 	POINTED_DRIPSTONE(ConfigExperiments.enableDripstone, new BlockPointedDripstone()),

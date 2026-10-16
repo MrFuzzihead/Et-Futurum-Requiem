@@ -117,6 +117,7 @@ public class ConfigBlocksItems extends ConfigBase {
 	public static boolean enableFletchingTable;
 	public static boolean enableCartographyTable;
 	public static boolean enableLoom;
+	public static boolean enableGrindstone;
 	public static boolean enableAmethyst;
 	public static boolean enableDyedBeds;
 	public static boolean enableTarget;
@@ -286,6 +287,7 @@ public class ConfigBlocksItems extends ConfigBase {
 		);
 		enableCartographyTable = getBoolean("enableCartographyTable", catBlockFunc, true, "Currently DOES NOT HAVE ANY FUNCTIONALITY. Decoration ONLY!");
 		enableLoom = getBoolean("enableLoom", catBlockFunc, true, "Currently DOES NOT HAVE ANY FUNCTIONALITY. Decoration ONLY!");
+		enableGrindstone = getBoolean("enableGrindstone", catBlockFunc, true, "Backports the grindstone. It can disenchant items (keeping curses, if any exist) and repair two damaged items of the same type by combining them. Both actions drop experience.");
 		enableDyedBeds = getBoolean("enableDyedBeds", catBlockFunc, true, "Ability to craft differently colored beds out of wool. Mixed wool colors = red bed");
 
 		enableEnchantingTable = getBoolean("enableNewEnchantingTable", catBlockFunc, true, "Uses lapis as payment and has enchant previews and adjusted level costs. Requires tile entity replacement to be enabled in \"function.cfg\". It is compatible with CraftTweaker for adding and removing fuels." +
