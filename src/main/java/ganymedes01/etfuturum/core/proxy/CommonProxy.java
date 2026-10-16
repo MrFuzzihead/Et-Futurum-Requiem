@@ -14,6 +14,7 @@ import ganymedes01.etfuturum.client.gui.inventory.GuiAnvil;
 import ganymedes01.etfuturum.client.gui.inventory.GuiBarrel;
 import ganymedes01.etfuturum.client.gui.inventory.GuiBlastFurnace;
 import ganymedes01.etfuturum.client.gui.inventory.GuiEnchantment;
+import ganymedes01.etfuturum.client.gui.inventory.GuiGrindstone;
 import ganymedes01.etfuturum.client.gui.inventory.GuiNewBrewingStand;
 import ganymedes01.etfuturum.client.gui.inventory.GuiShulkerBox;
 import ganymedes01.etfuturum.client.gui.inventory.GuiSmithingTable;
@@ -57,6 +58,7 @@ import ganymedes01.etfuturum.inventory.ContainerAnvil;
 import ganymedes01.etfuturum.inventory.ContainerBlastFurnace;
 import ganymedes01.etfuturum.inventory.ContainerChestGeneric;
 import ganymedes01.etfuturum.inventory.ContainerEnchantment;
+import ganymedes01.etfuturum.inventory.ContainerGrindstone;
 import ganymedes01.etfuturum.inventory.ContainerNewBrewingStand;
 import ganymedes01.etfuturum.inventory.ContainerSmithingTable;
 import ganymedes01.etfuturum.inventory.ContainerSmoker;
@@ -70,6 +72,7 @@ import ganymedes01.etfuturum.tileentities.TileEntityBlastFurnace;
 import ganymedes01.etfuturum.tileentities.TileEntityCauldronPotion;
 import ganymedes01.etfuturum.tileentities.TileEntityCaveVines;
 import ganymedes01.etfuturum.tileentities.TileEntityGateway;
+import ganymedes01.etfuturum.tileentities.TileEntityGrindstone;
 import ganymedes01.etfuturum.tileentities.TileEntityGlowLichen;
 import ganymedes01.etfuturum.tileentities.TileEntityNewBeacon;
 import ganymedes01.etfuturum.tileentities.TileEntityNewBrewingStand;
@@ -135,6 +138,9 @@ public class CommonProxy implements IGuiHandler {
 		}
 		if (ModBlocks.BLAST_FURNACE.isEnabled()) {
 			GameRegistry.registerTileEntity(TileEntityBlastFurnace.class, Utils.getUnlocalisedName("blast_furnace"));
+		}
+		if (ModBlocks.GRINDSTONE.isEnabled()) {
+			GameRegistry.registerTileEntity(TileEntityGrindstone.class, Utils.getUnlocalisedName("grindstone"));
 		}
 		if (ConfigBlocksItems.enableVanillaSigns) {
 			GameRegistry.registerTileEntity(TileEntityWoodSign.class, Utils.getUnlocalisedName("sign"));
@@ -312,6 +318,7 @@ public class CommonProxy implements IGuiHandler {
 			case GUIIDs.SHULKER_BOX ->
 					new ContainerChestGeneric(player.inventory, (TileEntityShulkerBox) world.getTileEntity(x, y, z), ((TileEntityShulkerBox) world.getTileEntity(x, y, z)).getRowSize(), ((TileEntityShulkerBox) world.getTileEntity(x, y, z)).getSizeInventory() != 27);
 			case GUIIDs.SMITHING_TABLE -> new ContainerSmithingTable(player.inventory, world);
+			case GUIIDs.GRINDSTONE -> new ContainerGrindstone(player.inventory, world, x, y, z);
 			default -> null;
 		};
 	}
@@ -330,6 +337,7 @@ public class CommonProxy implements IGuiHandler {
 			case GUIIDs.SHULKER_BOX ->
 					new GuiShulkerBox(player.inventory, (TileEntityShulkerBox) world.getTileEntity(x, y, z));
 			case GUIIDs.SMITHING_TABLE -> new GuiSmithingTable(new ContainerSmithingTable(player.inventory, world));
+			case GUIIDs.GRINDSTONE -> new GuiGrindstone(new ContainerGrindstone(player.inventory, world, x, y, z));
 			default -> null;
 		};
 	}

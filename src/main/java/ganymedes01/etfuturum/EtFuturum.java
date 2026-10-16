@@ -1018,6 +1018,7 @@ public class EtFuturum {
 		config.addSoundEvent(ver, "block.amethyst_block.hit", "block");
 		config.addSoundEvent(ver, "block.amethyst_block.chime", "block");
 		config.addSoundEvent(ver, "block.smithing_table.use", "player");
+		config.addSoundEvent(ver, "block.grindstone.use", "block");
 		config.addSoundEvent(ver, "block.enchantment_table.use", "player");
 		config.addSoundEvent(ver, "block.beacon.activate", "block");
 		config.addSoundEvent(ver, "block.beacon.ambient", "block");

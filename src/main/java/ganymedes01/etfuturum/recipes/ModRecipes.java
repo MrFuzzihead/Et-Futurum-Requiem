@@ -1226,6 +1226,8 @@ public class ModRecipes {
 
 		addShapedRecipe(ModBlocks.LOOM.newItemStack(), "SS", "PP", 'P', "plankWood", 'S', new ItemStack(Items.string, 1, 0));
 
+		addShapedRecipe(ModBlocks.GRINDSTONE.newItemStack(), "I-I", "# #", 'I', "stickWood", '-', new ItemStack(Blocks.stone_slab, 1, 0), '#', "plankWood");
+
 		addShapedRecipe(ModBlocks.AMETHYST_BLOCK.newItemStack(), "AA", "AA", 'A', "gemAmethyst");
 		addShapedRecipe(ModBlocks.TINTED_GLASS.newItemStack(2, 0), " A ", "AGA", " A ", 'A', "gemAmethyst", 'G', "blockGlassColorless");
 

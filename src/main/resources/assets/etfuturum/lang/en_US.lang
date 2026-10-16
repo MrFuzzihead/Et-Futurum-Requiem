@@ -689,6 +689,7 @@ tile.etfuturum.composter.name=Composter
 tile.etfuturum.cartography_table.name=Cartography Table
 tile.etfuturum.loom.name=Loom
 tile.etfuturum.grindstone.name=Grindstone
+container.grindstone_title=Grindstone
 tile.etfuturum.lectern.name=Lectern
 tile.etfuturum.lantern.name=Lantern
 tile.etfuturum.soul_lantern.name=Soul Lantern
