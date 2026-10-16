@@ -100,23 +100,33 @@ public class BlockGrindstoneRenderer extends BlockModelBase {
 			tessellator.setColorOpaque_F(shade, shade, shade);
 
 			IIcon icon = new SubIcon(icons[face[2]], face[3], face[4], face[5], face[6]);
+			// RenderBlocks' face methods do not emit normals themselves; without one the fixed-function
+			// lighting pipeline falls back to whatever normal was last left in GL state (for example by
+			// the item rendered in the player's hand). That makes the inventory icon arbitrarily dark
+			// depending on what is being held, so mirror renderStandardInventoryCube and set it here.
 			switch (face[1]) {
 				case 0:
+					tessellator.setNormal(0F, -1F, 0F);
 					renderer.renderFaceYNeg(block, x, y, z, icon);
 					break;
 				case 1:
+					tessellator.setNormal(0F, 1F, 0F);
 					renderer.renderFaceYPos(block, x, y, z, icon);
 					break;
 				case 2:
+					tessellator.setNormal(0F, 0F, -1F);
 					renderer.renderFaceZNeg(block, x, y, z, icon);
 					break;
 				case 3:
+					tessellator.setNormal(0F, 0F, 1F);
 					renderer.renderFaceZPos(block, x, y, z, icon);
 					break;
 				case 4:
+					tessellator.setNormal(-1F, 0F, 0F);
 					renderer.renderFaceXNeg(block, x, y, z, icon);
 					break;
 				case 5:
+					tessellator.setNormal(1F, 0F, 0F);
 					renderer.renderFaceXPos(block, x, y, z, icon);
 					break;
 			}
