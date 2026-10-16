@@ -10,9 +10,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
 /**
- * Geometry is taken 1:1 from the modern {@code block/grindstone} model. The world model is drawn by
- * {@link ganymedes01.etfuturum.client.renderer.tileentity.TileEntityGrindstoneRenderer} so that all
- * 12 orientations are simple GL rotations; this renderer only exists for the inventory/held form.
+ * Geometry is taken 1:1 from the modern {@code block/grindstone} model. The normal world model is
+ * drawn by {@link ganymedes01.etfuturum.client.renderer.tileentity.TileEntityGrindstoneRenderer} so
+ * that all 12 orientations are simple GL rotations; this renderer draws the inventory/held form and
+ * the destruction overlay, which vanilla routes through the registered ISBRH.
  */
 @ThreadSafeISBRH(perThread = false)
 public class BlockGrindstoneRenderer extends BlockModelBase {
@@ -68,7 +69,18 @@ public class BlockGrindstoneRenderer extends BlockModelBase {
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		// Drawn by the tile entity renderer so it can be rotated into every orientation.
+		// The normal world model is drawn by TileEntityGrindstoneRenderer so it can be rotated into
+		// every orientation. The destruction overlay, however, is drawn through this handler, since
+		// RenderBlocks.renderBlockUsingTexture sets renderer.overrideBlockTexture and dispatches to
+		// the registered ISBRH. Draw the block's bounding box with the crack texture during that pass
+		// (the same thing BlockChestRenderer does) or the grindstone never shows a breaking
+		// animation, unlike blocks with a vanilla render type such as the anvil. A bounding box is
+		// used instead of the model itself because the damage pass batches every damaged block into a
+		// single Tessellator draw, where a per-block GL transform would be discarded; renderStandardBlock
+		// emits absolute coordinates that survive it.
+		if (renderer.hasOverrideBlockTexture()) {
+			renderer.renderStandardBlock(block, x, y, z);
+		}
 		return true;
 	}
 
